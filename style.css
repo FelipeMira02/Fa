@@ -5,3 +5,36 @@
 @media(max-width:640px){body::before{inset:7px}.page{padding:25px 24px 23px}.masthead{padding-bottom:18px;font-size:.75rem;letter-spacing:.04em;gap:8px}.tiny-heart{display:none}.dedication{grid-template-columns:1fr;padding:24px 0 28px;gap:26px}.portrait{min-height:0;height:340px;width:100%;max-width:460px;margin:auto}.portrait img{object-position:center 35%}.photo-caption{padding:40px 17px 17px}.listening-room{padding:0}.greeting{padding-top:21px}h1{font-size:4.7rem}.intro{margin-top:7px}.song{margin-top:25px;padding-top:23px}h2{font-size:2.15rem}.note-box{margin-top:25px}.tomorrow{margin-top:22px}footer{flex-wrap:wrap;justify-content:center;text-align:center;padding-top:20px;row-gap:11px}footer>span:first-child{width:100%}.footer-dedication{font-size:1.1rem}}
 @media(max-width:360px){h1{font-size:4rem}.page{padding-left:21px;padding-right:21px}.masthead{flex-wrap:wrap}.portrait{height:300px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+/* Comfortable touch controls and a compact, readable mobile layout. */
+body{line-height:1.5;min-height:100svh}
+.skip-link{position:fixed;top:12px;left:12px;z-index:10;padding:12px 18px;background:var(--text);color:var(--bg);border-radius:8px;transform:translateY(-200%)}
+.skip-link:focus{transform:translateY(0)}
+#play-button{width:76px;height:76px;flex-basis:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;touch-action:manipulation}
+#play-label{font-family:'DM Sans',Arial,sans-serif;font-size:.8rem;line-height:1.2}
+.timeline{padding-top:0}
+input[type=range]{height:44px}
+input[type=range]::-webkit-slider-thumb{width:24px;height:24px;margin-top:-10px;border:2px solid #f5ccdc}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border:2px solid #f5ccdc;border-radius:50%}
+.times{font-size:.875rem}
+@media(hover:none){#play-button:hover{transform:none;background:var(--wine)}}
+@media(max-width:640px){
+  body::before{display:none}
+  .page{padding: max(18px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left))}
+  .masthead{font-size:.75rem;letter-spacing:.025em;flex-wrap:wrap;gap:6px 16px;padding-bottom:14px}
+  .dedication{padding-top:18px;gap:20px}
+  .portrait{height:clamp(170px,45vw,250px);max-width:none;border-radius:12px;overflow:hidden}
+  .portrait img{object-position:center 35%;border-radius:5px}
+  .portrait::after{border-radius:3px}
+  .date-line{font-size:.8rem;letter-spacing:.04em}
+  .greeting{padding-top:12px}
+  h1{font-size:clamp(2.75rem,13vw,4.7rem);max-width:100%;overflow-wrap:anywhere}
+  .title-star{position:static;display:inline-block;margin-left:8px;font-size:.35em;vertical-align:top}
+  .intro{font-size:1.4rem;line-height:1.4}
+  .song{margin-top:22px;padding-top:20px}
+  h2{font-size:clamp(1.9rem,8vw,2.4rem);line-height:1.2;margin-top:14px}
+  .artist{font-size:1rem}
+  .player{gap:16px;margin-top:18px}
+  .note-box{padding:16px 20px;margin-top:24px;border-radius:8px}
+  .tomorrow{font-size:1rem}
+}

@@ -107,13 +107,15 @@ playButton.addEventListener("click", async () => {
 
 audio.addEventListener("play", () => {
   document.body.classList.add("is-playing");
-  playButton.textContent = "❚❚";
+  document.querySelector("#play-icon").textContent = "❚❚";
+  document.querySelector("#play-label").textContent = "Pausar";
   playButton.setAttribute("aria-label", "Pausar música");
 });
 
 audio.addEventListener("pause", () => {
   document.body.classList.remove("is-playing");
-  playButton.textContent = "▶";
+  document.querySelector("#play-icon").textContent = "▶";
+  document.querySelector("#play-label").textContent = "Ouvir";
   playButton.setAttribute("aria-label", "Tocar música");
 });
 
@@ -126,6 +128,7 @@ audio.addEventListener("timeupdate", () => {
   currentTime.textContent = formatTime(audio.currentTime);
   progress.value = audio.duration ? (audio.currentTime / audio.duration) * 100 : 0;
   progress.style.setProperty("--progress", `${progress.value}%`);
+  progress.setAttribute("aria-valuetext", `${formatTime(audio.currentTime)} de ${formatTime(audio.duration)}`);
 });
 
 audio.addEventListener("ended", () => {
